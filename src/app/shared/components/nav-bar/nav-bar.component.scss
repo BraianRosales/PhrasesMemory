@@ -1,0 +1,10 @@
+@use "../../../../scss/util" as u;
+
+.navBar {
+    height: -webkit-fill-available;
+    background-color: u.$color-primary;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 35px;
+}

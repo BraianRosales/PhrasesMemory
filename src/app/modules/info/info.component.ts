@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-decks',
+  selector: 'app-info',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './decks.component.html',
-  styleUrls: ['./decks.component.scss']
+  templateUrl: './info.component.html',
+  styleUrls: ['./info.component.scss']
 })
-export class DecksComponent {
+export class InfoComponent {
 
 }

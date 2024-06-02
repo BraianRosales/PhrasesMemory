@@ -1,2 +1,9 @@
-<h1>Hello world!</h1>
-<router-outlet></router-outlet>
+<div class="app">
+  <app-nav-bar class="app-navBar"></app-nav-bar>
+  <main class="app-content">
+    <app-header></app-header>
+    <div class="app-content-router">
+        <router-outlet></router-outlet>
+    </div>
+  </main>
+</div>

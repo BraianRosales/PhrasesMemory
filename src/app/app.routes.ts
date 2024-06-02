@@ -3,13 +3,28 @@ import { Routes } from '@angular/router';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'decks',
+    redirectTo: 'dashboard',
     pathMatch: 'full',
   },
   {
-    path: 'decks',
+    path: 'dashboard',
     loadComponent: () =>
-      import('./modules/decks/decks.component').then((c) => c.DecksComponent),
+      import('./modules/dashboard/dashboard.component').then((c) => c.DashboardComponent),
+  },
+  {
+    path: 'info',
+    loadComponent: () =>
+      import('./modules/info/info.component').then((c) => c.InfoComponent),
+  },
+  {
+    path: 'favorites',
+    loadComponent: () =>
+      import('./modules/favorites/favorites.component').then((c) => c.FavoritesComponent),
+  },
+  {
+    path: 'favorites',
+    loadComponent: () =>
+      import('./modules/favorites/favorites.component').then((c) => c.FavoritesComponent),
   },
   {
     path: 'config',

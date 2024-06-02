@@ -1,0 +1,8 @@
+@use "../../../scss/util" as u;
+
+.dashboard {
+    border: 1px solid u.$color-primary;
+    border-radius: 15px;
+    height: 95%;
+    padding: 10px;
+}
