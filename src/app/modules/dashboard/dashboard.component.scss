@@ -1,8 +1,55 @@
 @use "../../../scss/util" as u;
 
 .dashboard {
-    border: 1px solid u.$color-primary;
     border-radius: 15px;
-    height: 95%;
-    padding: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    &-top {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        gap: 25px;
+
+        &-phrasesFinder {
+            display: flex;
+            width: 70%;
+            background-color: brown;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+        &-login {
+            display: flex;
+            width: 30%;
+            height: 100%;
+            background-color: u.$color-primary;
+            border-radius: 10px;
+        }
+    }
+
+    &-bottom {
+        width: 100%;
+        height: 50%;
+        display: flex;
+        gap: 25px;
+
+        &-cardsBoard {
+            display: flex;
+            width: 70%;
+            height: 100%;
+            background-color: u.$color-primary;
+            border-radius: 10px;
+        }
+
+        &-searchHistory {
+            display: flex;
+            width: 30%;
+            height: 100%;
+            background-color: u.$color-primary;
+            border-radius: 10px;
+        }
+    }
 }
