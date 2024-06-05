@@ -1,6 +1,15 @@
 <nav class="navBar">
   <div class="navBar-menu">
-    <p>nav-bar works!</p>
+    <div class="navBar-menu-appName">
+      <span>Phrases Memory</span>
+    </div>
+    <div class="navBar-menu-modulesLinks">
+      <a href="https://www.example.com" [ngClass]="true ? 'active' : 'inactive'">Dashboard</a>
+      <a>Información de uso</a>
+      <a>Favoritas</a>
+      <a>Mi Portafolio</a>
+      <a>Configuración</a>
+    </div>
   </div>
   <div class="navBar-bottom">
     <app-get-an-account class="navBar-bottom-getAnAccount"></app-get-an-account>
