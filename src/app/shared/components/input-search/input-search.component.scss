@@ -1,0 +1,29 @@
+@use "../../../../scss/util" as u;
+
+.inputSearch {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  border-radius: 30px;
+  background-color: u.$color-gray;
+
+  .material-symbols-outlined {
+    padding-left: 20px;
+    font-size: 25px;
+  }
+
+  &-input {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    padding: 20px 0px 20px 8px;
+    font-size: u.$font-size-medium;
+    color: white;
+  }
+
+  &-input:focus-visible {
+    outline: none;
+  }
+}

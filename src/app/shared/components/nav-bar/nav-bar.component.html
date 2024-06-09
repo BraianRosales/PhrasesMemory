@@ -4,11 +4,34 @@
       <span>Phrases Memory</span>
     </div>
     <div class="navBar-menu-modulesLinks">
-      <a href="https://www.example.com" [ngClass]="true ? 'active' : 'inactive'">Dashboard</a>
-      <a>Información de uso</a>
-      <a>Favoritas</a>
-      <a>Mi Portafolio</a>
-      <a>Configuración</a>
+      <div class="navBar-menu-wrapperOption" [ngClass]="true ? 'active' : 'inactive'">
+        <span class="material-symbols-outlined"> dashboard </span>
+        <a href="https://www.example.com">Dashboard</a>
+      </div>
+      <div class="navBar-menu-wrapperOption" [ngClass]="false ? 'active' : 'inactive'">
+        <span class="material-symbols-outlined"> info </span>
+        <a> Información </a>
+      </div>
+      <div class="navBar-menu-wrapperOption" [ngClass]="false ? 'active' : 'inactive'">
+        <span class="material-symbols-outlined"> kid_star </span>
+        <a> Favoritas </a>
+      </div>
+      <div class="navBar-menu-wrapperOption" [ngClass]="false ? 'active' : 'inactive'">
+        <span class="material-symbols-outlined"> manufacturing</span>
+        <a>Configuración</a>
+      </div>
+      <div class="navBar-menu-dividerWrapper">
+        <span class="navBar-menu-divider"></span>
+      </div>
+      <div class="navBar-menu-wrapperOption" [ngClass]="false ? 'active' : 'inactive'">
+        <span class="material-symbols-outlined">folder_open</span>
+        <a> Portafolio </a>
+      </div>
+      <div class="navBar-menu-wrapperOption" [ngClass]="false ? 'active' : 'inactive'">
+        <span class="material-symbols-outlined">
+          assignment_returned
+          </span>    <a> CV </a>
+      </div>
     </div>
   </div>
   <div class="navBar-bottom">
