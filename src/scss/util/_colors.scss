@@ -1,4 +1,13 @@
+
+// ------------------ colors ------------------
 $color-primary: #202123;
 $color-secondary: #9BDF74;
-$color-light-gray: #404247;
 $color-gray: #2F3238;
+$color-divider: #404247;
+
+// ------------------ Type of buttons ------------------
+$button-border: white;
+$primary-button-background: $color-secondary; 
+$secondary-button-background: #2B352A;
+$tertiary-button-background: $color-primary;
+$disabled-button-background: $color-gray;

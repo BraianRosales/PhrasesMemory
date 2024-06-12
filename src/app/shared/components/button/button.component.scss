@@ -1,0 +1,43 @@
+@use "../../../../scss/util" as u;
+
+.btn {
+    border-radius: 30px;
+    width: 100px;
+    height: 45px;
+    cursor: pointer;
+    border: none;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    transition: 1s;
+    font-size: u.$font-size-medium;
+
+    &-white {
+        background-color: white;
+        color: black;
+        border: 1px solid u.$button-border;
+    }
+
+    &-primary {
+        background-color: u.$primary-button-background;
+    }
+
+    &-secondary {
+        background-color: u.$secondary-button-background;
+        color: black;
+    }
+
+    &-tertiary {
+        background-color: u.$tertiary-button-background;
+        color: u.$color-secondary;
+    }
+
+    &-disabled {
+        background-color: u.$disabled-button-background;
+        color: u.$disabled-button-background;
+        cursor: not-allowed;
+        pointer-events: none;
+    }
+}

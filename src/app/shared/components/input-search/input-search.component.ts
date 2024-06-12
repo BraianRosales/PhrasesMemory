@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
-
 @Component({
   selector: 'app-input-search',
   standalone: true,
@@ -10,6 +9,7 @@ import { FormControl, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./input-search.component.scss'],
 })
 export class InputSearchComponent {
+  @Input() placeholder: string = 'Escriba la palabra y buscar...'
   searchForm!: FormGroup;
 
   ngOnInit(): void {

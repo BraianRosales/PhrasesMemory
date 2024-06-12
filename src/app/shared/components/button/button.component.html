@@ -1,1 +1,9 @@
-<p>button works!</p>
+<button class="btn" [style.width]="width" [ngClass]="{
+    'btn-white': panelClass === 'white',
+    'btn-primary': panelClass === 'primary',
+    'btn-secondary': panelClass === 'secondary',
+    'btn-tertiary': panelClass === 'tertiary',
+    'btn-disabled': panelClass === 'disabled'
+  }">
+    <p>{{ text }}</p>
+</button>
