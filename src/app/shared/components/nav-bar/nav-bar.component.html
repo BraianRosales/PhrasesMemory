@@ -3,36 +3,25 @@
     <div class="navBar-menu-appName">
       <span>Phrases Memory</span>
     </div>
-    <div class="navBar-menu-modulesLinks">
-      <div class="navBar-menu-wrapperOption" [ngClass]="true ? 'active' : 'inactive'">
-        <span class="material-symbols-outlined"> dashboard </span>
-        <a href="https://www.example.com">Dashboard</a>
+    <div class="navBar-menu-modulesLinks" *ngFor="let option of options; let i = index">
+      <div class="navBar-menu-wrapperOption" [ngClass]="option.isActive ? 'active' : 'inactive'">
+        <span class="material-symbols-outlined"> {{option.icon}} </span>
+        <a (click)="navigateTo(i)">{{option.name}} </a>
       </div>
-      <div class="navBar-menu-wrapperOption" [ngClass]="false ? 'active' : 'inactive'">
-        <span class="material-symbols-outlined"> info </span>
-        <a> Información </a>
-      </div>
-      <div class="navBar-menu-wrapperOption" [ngClass]="false ? 'active' : 'inactive'">
-        <span class="material-symbols-outlined"> kid_star </span>
-        <a> Favoritas </a>
-      </div>
-      <div class="navBar-menu-wrapperOption" [ngClass]="false ? 'active' : 'inactive'">
-        <span class="material-symbols-outlined"> manufacturing</span>
-        <a>Configuración</a>
-      </div>
-      <div class="navBar-menu-dividerWrapper">
-        <span class="navBar-menu-divider"></span>
-      </div>
-      <div class="navBar-menu-wrapperOption" [ngClass]="false ? 'active' : 'inactive'">
-        <span class="material-symbols-outlined">folder_open</span>
-        <a> Portafolio </a>
-      </div>
-      <div class="navBar-menu-wrapperOption" [ngClass]="false ? 'active' : 'inactive'">
-        <span class="material-symbols-outlined">
-          assignment_returned
-        </span>
-        <a> CV </a>
-      </div>
+    </div>
+    
+    <div class="navBar-menu-dividerWrapper">
+      <span class="navBar-menu-divider"></span>
+    </div>
+    <div class="navBar-menu-wrapperOption" [ngClass]="false ? 'active' : 'inactive'">
+      <span class="material-symbols-outlined">folder_open</span>
+      <a href="https://portfoliobradev.netlify.app/" target="_blank"> Portafolio </a>
+    </div>
+    <div class="navBar-menu-wrapperOption" [ngClass]="false ? 'active' : 'inactive'">
+      <span class="material-symbols-outlined">
+        assignment_returned
+      </span>
+      <a href="assets/CV-BraianRosales.pdf" download> CV </a>
     </div>
   </div>
   <div class="navBar-bottom">

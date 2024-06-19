@@ -22,11 +22,6 @@ export const routes: Routes = [
       import('./modules/favorites/favorites.component').then((c) => c.FavoritesComponent),
   },
   {
-    path: 'favorites',
-    loadComponent: () =>
-      import('./modules/favorites/favorites.component').then((c) => c.FavoritesComponent),
-  },
-  {
     path: 'config',
     loadComponent: () =>
       import('./modules/config/config.component').then((c) => c.ConfigComponent),
