@@ -1,6 +1,6 @@
 <header class="header">
     <div class="header-inputSearch">
-        <app-input-search></app-input-search>
+        <app-input [formGroup]="searchForm" controlName="searchControl"></app-input>
     </div>
-    <app-button></app-button>
+    <app-button (click)="searchMeanings()"></app-button>
 </header>

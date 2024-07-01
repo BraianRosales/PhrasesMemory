@@ -1,15 +1,33 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { InputSearchComponent } from '../input-search/input-search.component';
 import { ButtonComponent } from '../button/button.component';
+import { FormControl, FormGroup } from '@angular/forms';
+import { InputComponent } from '../input/input.component';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, InputSearchComponent, ButtonComponent],
+  imports: [CommonModule, InputComponent, ButtonComponent],
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
+  @Output() clickedOnSearch = new EventEmitter<string>();
+  searchForm!: FormGroup;
 
+  constructor() {
+    this.searchForm = new FormGroup({
+      searchControl: new FormControl(''),
+    });
+  }
+
+  ngOnInit(): void {}
+
+  get searchValue() {
+    return this.searchForm.get('searchControl')?.value;
+  }
+
+  searchMeanings() {
+    this.clickedOnSearch.emit(this.searchValue);
+  }
 }

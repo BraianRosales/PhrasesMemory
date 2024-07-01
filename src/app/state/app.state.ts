@@ -4,7 +4,7 @@ import { meaningsReducer } from './reducers/meanings.reducer';
 
 export interface AppState {
   meaningsList: MeaningState;
-  // favoritesList: ReadonlyArray<Meaning[]>;
+  //TODO: Aca pueden ir mas estados.
 }
 
 export const ROOT_REDUCERS: ActionReducerMap<AppState> = {

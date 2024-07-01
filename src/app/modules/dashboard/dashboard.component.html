@@ -1,4 +1,6 @@
 <main class="dashboard">
+  <app-header (clickedOnSearch)="searchMeaning($event)"></app-header>
+  Loading meanings: {{loading$ | async}}
   <div class="dashboard-top">
     <app-meaning-board class="dashboard-top-meaningBoard"></app-meaning-board>
     <app-login class="dashboard-top-login"></app-login>
