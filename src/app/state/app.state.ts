@@ -1,5 +1,5 @@
 import { ActionReducerMap } from '@ngrx/store';
-import { MeaningState } from '../core/models/meaning.state';
+import { MeaningState } from '../core/models/meaning.model';
 import { meaningsReducer } from './reducers/meanings.reducer';
 
 export interface AppState {

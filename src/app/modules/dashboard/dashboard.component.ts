@@ -6,15 +6,12 @@ import { CardSearchHistoryComponent } from 'src/app/shared/components/card-searc
 import { MeaningBoardComponent } from 'src/app/shared/components/meaning-board/meaning-board.component';
 import { HeaderComponent } from 'src/app/shared/components/header/header.component';
 import { Store } from '@ngrx/store';
-import {
-  loadMeanings,
-  loadedMeanings,
-} from 'src/app/state/actions/meanings.actions';
+import { loadedMeanings } from 'src/app/state/actions/meanings.actions';
 import { Observable } from 'rxjs';
 import { selectLoadingMeanings } from 'src/app/state/selectors/meanings.selectors';
-import { MeaningsServices } from 'src/app/core/services/meanings.service';
-import { ApiResponse } from 'src/app/core/models/ApiResponse.model';
 import { HttpClientModule } from '@angular/common/http';
+import { DictionaryServices } from 'src/app/core/services/dictionary.service';
+import { Context } from 'src/app/core/models/ApiResponse.model';
 
 @Component({
   selector: 'app-dashboard',
@@ -30,11 +27,11 @@ import { HttpClientModule } from '@angular/common/http';
   ],
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss'],
-  providers: [MeaningsServices],
+  providers: [DictionaryServices],
 })
 export class DashboardComponent implements OnInit {
   store = inject(Store<any>);
-  meaningsServices = inject(MeaningsServices);
+  dictionaryServices = inject(DictionaryServices);
   loading$: Observable<boolean> = new Observable();
 
   ngOnInit(): void {
@@ -42,12 +39,12 @@ export class DashboardComponent implements OnInit {
   }
 
   searchMeaning(word: string) {
-    this.meaningsServices.getMeanings(word).subscribe((res: ApiResponse) => {
-      this.store.dispatch(
-        loadedMeanings({
-          meanings: res.meanings
-        })
-      );
+    this.dictionaryServices.getContexts(word).subscribe((context: Context[]) => {
+      // this.store.dispatch(
+      //   loadedMeanings({
+      //     meanings: context.meanings,
+      //   })
+      // );
     });
   }
 }

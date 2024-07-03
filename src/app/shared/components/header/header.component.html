@@ -1,6 +1,8 @@
 <header class="header">
-    <div class="header-inputSearch">
-        <app-input [formGroup]="searchForm" controlName="searchControl"></app-input>
-    </div>
-    <app-button (click)="searchMeanings()"></app-button>
+    <form class="header-form" (ngSubmit)="searchMeanings($event)">
+        <div class="header-form-inputSearch">
+            <app-input [formGroup]="searchForm" controlName="searchControl"></app-input>
+        </div>
+        <app-button type="submit" (click)="searchMeanings($event)"></app-button>
+    </form>
 </header>

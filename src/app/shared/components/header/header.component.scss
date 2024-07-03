@@ -1,15 +1,22 @@
 @use "../../../../scss/util" as u;
 
 .header {
-    background-color: u.$color-primary;
+  background-color: u.$color-primary;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  height: 60px;
+  border-radius: 10px;
+  padding: 20px;
+
+  &-form {
+    width: 38%;
     display: flex;
     align-items: center;
-    gap: 15px;
-    height: 60px;
-    border-radius: 10px;
-    padding: 20px;
+    justify-content: space-between;
 
     &-inputSearch {
-        width: 38%;
+      width: 80%;
     }
+  }
 }

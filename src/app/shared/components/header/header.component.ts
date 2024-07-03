@@ -27,7 +27,8 @@ export class HeaderComponent {
     return this.searchForm.get('searchControl')?.value;
   }
 
-  searchMeanings() {
+  searchMeanings(event: Event) {
+    event.preventDefault();
     this.clickedOnSearch.emit(this.searchValue);
   }
 }

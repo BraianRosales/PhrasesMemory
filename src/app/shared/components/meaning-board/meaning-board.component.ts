@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, inject } from '@angular/core';
-import {  CommonModule } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/state/app.state';
 import { Observable } from 'rxjs';
@@ -17,6 +17,6 @@ export class MeaningBoardComponent implements OnInit {
   meanings$: Observable<any> = new Observable();
 
   ngOnInit(): void {
-   this.meanings$ =  this.store.select(selectListMeanings)
+    this.meanings$ = this.store.select(selectListMeanings);
   }
 }

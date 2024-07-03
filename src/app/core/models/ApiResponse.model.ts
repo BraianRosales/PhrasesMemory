@@ -1,4 +1,4 @@
-export interface ApiResponse {
+export interface Context {
   word: string;
   phonetic: string;
   phonetics: Phonetic[];

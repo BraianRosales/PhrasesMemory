@@ -1,6 +1,6 @@
 import { createSelector } from "@ngrx/store";
 import { AppState } from "../app.state";
-import { MeaningState } from "src/app/core/models/meaning.state";
+import { MeaningState } from "src/app/core/models/meaning.model";
 
 export const selectMeaningsFeature = (state: AppState) => state.meaningsList;
 
