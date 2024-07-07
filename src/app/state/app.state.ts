@@ -1,12 +1,12 @@
 import { ActionReducerMap } from '@ngrx/store';
-import { MeaningState } from '../core/models/meaning.model';
-import { meaningsReducer } from './reducers/meanings.reducer';
+import { BoardState } from '../core/models/board.model';
+import { boardReducer } from './reducers/board.reducer';
 
 export interface AppState {
-  meaningsList: MeaningState;
-  //TODO: Aca pueden ir mas estados.
+  board: BoardState;
+  //TODO: Here we can put more states.
 }
 
 export const ROOT_REDUCERS: ActionReducerMap<AppState> = {
-  meaningsList: meaningsReducer,
+  board: boardReducer,
 };

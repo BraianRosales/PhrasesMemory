@@ -1,0 +1,9 @@
+<main class="board">
+    <ng-container *ngIf="board$ | async as board">
+        <div *ngIf="board.word" class="board-content">
+            <h1>{{ board.word }}</h1>
+            <p *ngFor="let definition of board.definitions"> Definición: {{definition.definition}} <br> Ejemplo: <span></span> {{ definition.example ? definition.example: 'Sin ejemplo :('}} <br></p>
+        </div>
+    </ng-container>
+
+</main>

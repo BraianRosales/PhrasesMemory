@@ -3,15 +3,14 @@ import { CommonModule } from '@angular/common';
 import { LoginComponent } from 'src/app/auth/login/login.component';
 import { CardsBoardComponent } from 'src/app/shared/components/cards-board/cards-board.component';
 import { CardSearchHistoryComponent } from 'src/app/shared/components/card-search-history/card-search-history.component';
-import { MeaningBoardComponent } from 'src/app/shared/components/meaning-board/meaning-board.component';
 import { HeaderComponent } from 'src/app/shared/components/header/header.component';
 import { Store } from '@ngrx/store';
-import { loadedMeanings } from 'src/app/state/actions/meanings.actions';
 import { Observable } from 'rxjs';
-import { selectLoadingMeanings } from 'src/app/state/selectors/meanings.selectors';
 import { HttpClientModule } from '@angular/common/http';
 import { DictionaryServices } from 'src/app/core/services/dictionary.service';
-import { Context } from 'src/app/core/models/ApiResponse.model';
+import { Context, Definition, Meaning } from 'src/app/core/models/apiResponse.model';
+import { BoardComponent } from 'src/app/shared/components/board/board.component';
+import { loadBoard, loadedBoard } from 'src/app/state/actions/board.actions';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,7 +18,7 @@ import { Context } from 'src/app/core/models/ApiResponse.model';
   imports: [
     CommonModule,
     HeaderComponent,
-    MeaningBoardComponent,
+    BoardComponent,
     LoginComponent,
     CardsBoardComponent,
     CardSearchHistoryComponent,
@@ -35,16 +34,25 @@ export class DashboardComponent implements OnInit {
   loading$: Observable<boolean> = new Observable();
 
   ngOnInit(): void {
-    this.loading$ = this.store.select(selectLoadingMeanings);
   }
 
-  searchMeaning(word: string) {
-    this.dictionaryServices.getContexts(word).subscribe((context: Context[]) => {
-      // this.store.dispatch(
-      //   loadedMeanings({
-      //     meanings: context.meanings,
-      //   })
-      // );
-    });
+  searchWord(word: string) {
+    this.store.dispatch(loadBoard());
+    this.dictionaryServices
+      .getContexts(word)
+      .subscribe((contexts: Context[]) => {
+        const word = contexts[0].word;
+        const meanings = contexts.flatMap((context: Context) => context.meanings);
+        const definitions = meanings.flatMap((meaning: Meaning) => meaning.definitions);
+
+        this.store.dispatch(
+          loadedBoard({
+            board: {
+              word: word,
+              definitions: definitions,
+            }
+          })
+        );
+      });
   }
 }

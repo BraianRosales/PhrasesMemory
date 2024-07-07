@@ -21,8 +21,8 @@ export interface Meaning {
 
 export interface Definition {
   definition: string;
-  synonyms: any[];
-  antonyms: any[];
+  synonyms?: any[];
+  antonyms?: any[];
   example?: string;
 }
 

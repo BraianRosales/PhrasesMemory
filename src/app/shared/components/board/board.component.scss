@@ -1,0 +1,21 @@
+@use "../../../../scss/util" as u;
+
+.board {
+  padding: 20px;
+
+  &-content {
+    height: 100%;
+    overflow: auto;
+
+    h1 {
+        margin-bottom: 10px;
+    }
+
+    p {
+      border-radius: 10px;
+      background-color: black;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}
