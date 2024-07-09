@@ -3,7 +3,8 @@
     'btn-primary': panelClass === 'primary',
     'btn-secondary': panelClass === 'secondary',
     'btn-tertiary': panelClass === 'tertiary',
-    'btn-disabled': panelClass === 'disabled'
-  }">
-    <p>{{ text }}</p>
+    'btn-disabled': panelClass === 'disabled',
+    'hover-primary': isHovering && panelClass === 'tertiary'
+  }" (mouseenter)="onMouseEnter()" (mouseleave)="onMouseLeave()">
+  <p>{{ text }}</p>
 </button>

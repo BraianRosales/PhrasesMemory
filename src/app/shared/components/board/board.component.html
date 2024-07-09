@@ -1,8 +1,19 @@
 <main class="board">
     <ng-container *ngIf="board$ | async as board">
-        <div *ngIf="board.word" class="board-content">
+        <div class="board-content" *ngIf="board.word">
             <h1>{{ board.word }}</h1>
-            <p *ngFor="let definition of board.definitions"> Definición: {{definition.definition}} <br> Ejemplo: <span></span> {{ definition.example ? definition.example: 'Sin ejemplo :('}} <br></p>
+            <div class="board-content-definitions">
+                <div class="board-content-example" *ngFor="let definition of board.definitions">
+                    <div class="board-content-textWrapper">
+                        <p>Definición: {{definition.definition}}</p>
+                        <p>Ejemplo: {{ definition.example ? definition.example: 'Sin ejemplo.'}}</p>
+                    </div>
+                    <div class="board-content-buttonWrapper">
+                        <app-button panelClass="tertiary" text="Traducir"></app-button>
+                        <app-button panelClass="tertiary" text="Guardar"></app-button>
+                    </div>
+                </div>
+            </div>
         </div>
     </ng-container>
 

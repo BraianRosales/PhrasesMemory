@@ -1,2 +1,26 @@
-@forward 'globals';
-html, body { height: 100%; }
+@forward "globals";
+@use "../scss/util" as u;
+
+html,
+body {
+  height: 100%;
+  scrollbar-width: thin;
+  scrollbar-color: u.$primary-button-background transparet;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparet;
+}
+
+::-webkit-scrollbar-thumb {
+  background: u.$primary-button-background;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: transparet;
+}

@@ -41,3 +41,8 @@
         pointer-events: none;
     }
 }
+
+.hover-primary {
+    background-color: u.$primary-button-background;
+    color: black !important;
+  }

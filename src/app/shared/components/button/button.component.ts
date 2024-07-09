@@ -16,4 +16,14 @@ export class ButtonComponent {
   constructor() {}
 
   ngOnInit(): void {}
+
+  isHovering: boolean = false;
+
+  onMouseEnter() {
+    this.isHovering = true;
+  }
+
+  onMouseLeave() {
+    this.isHovering = false;
+  }
 }

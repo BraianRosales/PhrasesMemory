@@ -5,11 +5,12 @@ import { AppState } from 'src/app/state/app.state';
 import { Observable } from 'rxjs';
 import { selectBoard } from 'src/app/state/selectors/board.selector';
 import { BoardState } from 'src/app/core/models/board.model';
+import { ButtonComponent } from '../button/button.component';
 
 @Component({
   selector: 'app-board',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, ButtonComponent],
   templateUrl: './board.component.html',
   styleUrls: ['./board.component.scss'],
 })
