@@ -9,7 +9,7 @@
                         <p>Ejemplo: {{ definition.example ? definition.example: 'Sin ejemplo.'}}</p>
                     </div>
                     <div class="board-content-buttonWrapper">
-                        <app-button panelClass="tertiary" text="Traducir"></app-button>
+                        <app-button (click)="translate(definition.definition, definition.example)" panelClass="tertiary" text="Traducir"></app-button>
                         <app-button panelClass="tertiary" text="Guardar"></app-button>
                     </div>
                 </div>
