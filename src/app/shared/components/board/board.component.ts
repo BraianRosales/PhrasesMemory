@@ -20,28 +20,59 @@ export class BoardComponent implements OnInit {
   store = inject(Store<AppState>);
   translationService = inject(TranslationService);
   board$: Observable<BoardState> = new Observable();
+  definitionTranslated: string = '';
+  exampleTranslated: string = '';
+  translations: {
+    [index: number]: {
+      definitionTranslated: string;
+      exampleTranslated: string;
+    };
+  } = {};
 
   ngOnInit(): void {
     this.board$ = this.store.select(selectBoard);
+    //TODO: Every time the board restarts I need to update the translations = {} or every time the user clicks  on button "buscar";
   }
 
-  translate(definition: string, example: string | undefined) {
+  translate(definition: string, example: string | undefined, index: number) {
     this.translationService
       .translateText(
         'en',
         'es',
-        `Definición: ${definition} - Ejemplo: ${example}`
+        `Definition: ${definition} Example: ${example}`
       )
       .subscribe({
         next: (res: any) => {
-          console.log('RES:', res);
+          const translatedText = res.data.translatedText;
+          const exampleIndex = translatedText.indexOf('Ejemplo:');
+
+          if (exampleIndex !== -1) {
+            // Use the slice method to extract a part of the translatedText string that starts at index 0 and ends just before the exampleIndex.
+            const definitionTranslated = translatedText
+              .slice(0, exampleIndex)
+              .trim();
+            // Use slice to extract the part of the translatedText string that starts at exampleIndex and continues to the end of the string.
+            let exampleTranslated = translatedText.slice(exampleIndex).trim();
+
+            if (example == undefined) {
+              exampleTranslated = 'Ejemplo: Sin Ejemplo.';
+            }
+
+            this.translations[index] = {
+              definitionTranslated,
+              exampleTranslated,
+            };
+          } else {
+            this.translations[index] = {
+              definitionTranslated: translatedText,
+              exampleTranslated: '',
+            };
+          }
         },
         error: (error: any) => {
           console.error(error);
         },
-        complete: () => {
-          console.log('Translation completed');
-        },
+        complete: () => {},
       });
   }
 }

@@ -33,6 +33,12 @@
       flex-direction: column;
       justify-content: center;
       width: 95%;
+      gap: 5px;
+    }
+
+    &-textMultiLenguage {
+      display: flex;
+      flex-direction: column;
       gap: 10px;
     }
 
