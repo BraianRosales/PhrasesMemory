@@ -32,6 +32,7 @@ export class BoardComponent implements OnInit {
   ngOnInit(): void {
     this.board$ = this.store.select(selectBoard);
     //TODO: Every time the board restarts I need to update the translations = {} or every time the user clicks  on button "buscar";
+    //TODO: I have to learn effect with ngrx.
   }
 
   translate(definition: string, example: string | undefined, index: number) {

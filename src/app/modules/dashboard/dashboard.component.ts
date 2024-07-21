@@ -37,22 +37,6 @@ export class DashboardComponent implements OnInit {
   }
 
   searchWord(word: string) {
-    this.store.dispatch(loadBoard());
-    this.dictionaryServices
-      .getContexts(word)
-      .subscribe((contexts: Context[]) => {
-        const word = contexts[0].word;
-        const meanings = contexts.flatMap((context: Context) => context.meanings);
-        const definitions = meanings.flatMap((meaning: Meaning) => meaning.definitions);
-
-        this.store.dispatch(
-          loadedBoard({
-            board: {
-              word: word,
-              definitions: definitions,
-            }
-          })
-        );
-      });
+    this.store.dispatch(loadBoard({word})); //Here I also call board.effects, to call this.dictionaryServices.getContexts(action.word).
   }
 }
